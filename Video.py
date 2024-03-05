@@ -20,10 +20,10 @@
 import glob
 import os
 
-from Kazu.fns.tools import set_attributes
+from dante.fns.tools import set_attributes
 
 from . import (
-    KazuConfig,
+    danteConfig,
     bash,
     duration_s,
     eod,
@@ -31,11 +31,11 @@ from . import (
     get_string,
     mediainfo,
     stdr,
-    kazu_cmd,
+    dante_cmd,
 )
 
 
-@kazu_cmd(pattern="sample( (.*)|$)")
+@dante_cmd(pattern="sample( (.*)|$)")
 async def gen_sample(e):
     sec = e.pattern_match.group(1).strip()
     stime = int(sec) if sec and sec.isdigit() else 30
@@ -96,7 +96,7 @@ async def gen_shots(e):
         await xxx.delete()
 
 
-@kazu_cmd(pattern="vtrim( (.*)|$)")
+@dante_cmd(pattern="vtrim( (.*)|$)")
 async def gen_sample(e):
     sec = e.pattern_match.group(1).strip()
     if not sec or "-" not in sec:
