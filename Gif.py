@@ -28,10 +28,10 @@ import random
 import time
 from datetime import datetime as dt
 
-from . import HNDLR, LOGS, bash, downloader, get_string, mediainfo, kazu_cmd
+from . import HNDLR, LOGS, bash, downloader, get_string, mediainfo, dante_cmd
 
 
-@kazu_cmd(pattern="(bw|invert)gif$")
+@dante_cmd(pattern="(bw|invert)gif$")
 async def igif(e):
     match = e.pattern_match.group(1).strip()
     a = await e.get_reply_message()
@@ -56,7 +56,7 @@ async def igif(e):
         LOGS.info(er)
 
 
-@kazu_cmd(pattern="rvgif$")
+@dante_cmd(pattern="rvgif$")
 async def reverse_gif(event):
     a = await event.get_reply_message()
     if not (a and a.media) and "video" not in mediainfo(a.media):
@@ -70,7 +70,7 @@ async def reverse_gif(event):
     os.remove("reversed.mp4")
 
 
-@kazu_cmd(pattern="gif( (.*)|$)")
+@dante_cmd(pattern="gif( (.*)|$)")
 async def gifs(ayra):
     get = ayra.pattern_match.group(1).strip()
     xx = random.randint(0, 5)
@@ -96,7 +96,7 @@ async def gifs(ayra):
     await m.delete()
 
 
-@kazu_cmd(pattern="vtog$")
+@dante_cmd(pattern="vtog$")
 async def vtogif(e):
     a = await e.get_reply_message()
     if not (a and a.media):
