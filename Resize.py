@@ -1,4 +1,4 @@
-# kazu - UserBot
+
 # Copyright (C) 2021-2022 senpai80
 #
 # This file is a part of < https://github.com/senpai80/kazu/ >
@@ -16,10 +16,10 @@
 """
 from PIL import Image
 
-from . import HNDLR, eor, get_string, os, kazu_cmd
+from . import HNDLR, eor, get_string, os, dante_cmd
 
 
-@kazu_cmd(pattern="size$")
+@dante_cmd(pattern="size$")
 async def size(e):
     r = await e.get_reply_message()
     if not (r and r.media):
@@ -35,7 +35,7 @@ async def size(e):
     os.remove(img)
 
 
-@kazu_cmd(pattern="resize( (.*)|$)")
+@dante_cmd(pattern="resize( (.*)|$)")
 async def size(e):
     r = await e.get_reply_message()
     if not (r and r.media):
