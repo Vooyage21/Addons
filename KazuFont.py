@@ -15,7 +15,7 @@
 
 """
 ✘ Perintah yang Tersedia -
-"Kazu": f"**Modul : **`ᴋᴀᴢᴜ ғᴏɴᴛ`\
+"dante": f"**Modul : **`dante ғᴏɴᴛ`\
         \n\n  »  **Perintah :** `{i}font` `<nama font>` `<teks/balas ke pesan>`\
         \n  »  **Kegunaan : **Membuat Text dengan Fonts Style.\
         \n\n  »  **Perintah :** `{i}lf`\
@@ -450,7 +450,7 @@ def blackbubbles(text):
 # ========================×========================
 
 
-@kazu_cmd(pattern=r"font (monospace|smallcap|outline|bold|bolditalic|script|bubbles|blackbubbles) (.*)")
+@dante_cmd(pattern=r"font (monospace|smallcap|outline|bold|bolditalic|script|bubbles|blackbubbles) (.*)")
 async def font_yins(ayiin):
     if ayiin.pattern_match.group(1) == "monospace":
         xd = monospace
@@ -587,25 +587,25 @@ async def _(ayiin):
 # ========================×========================
 
 
-@kazu_cmd(pattern="lf(.*)(|$)")
+@dante_cmd(pattern="lf(.*)(|$)")
 async def fonts(yins):
     ayiin = await eor(ayiin,
                                 "**»» ᴅᴀғᴛᴀʀ ғᴏɴᴛs ««**\n"
                                 "**         ☟︎︎︎☟︎︎︎☟︎︎︎☟︎︎︎☟︎︎︎☟︎︎**\n\n\n"
-                                "**• smallcap » ᴋᴀᴢᴜ**\n"
-                                "**• monospace » 𝙺𝙰𝚉𝚄**\n"
-                                "**• outline » 𝕂𝔸ℤ𝕌**\n"
-                                "**• script » 𝒦𝒜𝒵𝒰**\n"
-                                "**• blackbubbles » ⓀⒶⓏⓊ**\n"
-                                "**• bubbles » ⓀⒶⓏⓊ**\n"
-                                "**• bold » 𝗞𝗔𝗭𝗨**\n"
-                                "**• bolditalic » 𝙆𝘼𝙕𝙐**\n\n"
-                                "**   ✧ 𝙺𝙰𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**")
+                                "**• smallcap » dante**\n"
+                                "**• monospace » dante**\n"
+                                "**• outline » dante**\n"
+                                "**• script » dante**\n"
+                                "**• blackbubbles » dante**\n"
+                                "**• bubbles » dante**\n"
+                                "**• bold » dante**\n"
+                                "**• bolditalic » dante**\n\n"
+                                "**   ✧ dante-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**")
 
 
 CMD_HELP.update(
     {
-        "yinsfont": f"**Plugin : **`kazufont`\
+        "yinsfont": f"**Plugin : **`dantefont`\
         \n\n  »  **Perintah :** `{cmd}font` `<nama font>` `<teks/balas ke pesan>`\
         \n  »  **Kegunaan : **Membuat Text dengan Fonts Style.\
         \n\n  »  **Perintah :** `{cmd}lf`\
