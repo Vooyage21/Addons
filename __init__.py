@@ -8,4 +8,4 @@
 
 from plugins import *
 
-bot = kazu_bot
+bot = dante_bot
