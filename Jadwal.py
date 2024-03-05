@@ -14,12 +14,12 @@
 """
 from datetime import timedelta
 
-from Kazu.fns.admins import ban_time
+from dante.fns.admins import ban_time
 
-from . import get_string, kazu_cmd
+from . import get_string, dante_cmd
 
 
-@kazu_cmd(pattern="schedule( (.*)|$)", fullsudo=True)
+@dante_cmd(pattern="schedule( (.*)|$)", fullsudo=True)
 async def _(e):
     x = e.pattern_match.group(1).strip()
     xx = await e.get_reply_message()
