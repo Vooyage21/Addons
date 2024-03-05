@@ -64,11 +64,11 @@ from . import (
     quotly,
     types,
     udB,
-    kazu_cmd,
+    dante_cmd,
 )
 
 
-@kazu_cmd(pattern="packkang")
+@dante_cmd(pattern="packkang")
 async def pack_kangish(_):
     _e = await _.get_reply_message()
     local = None
@@ -121,7 +121,7 @@ async def pack_kangish(_):
             )
         )
     try:
-        short_name = "kazu_" + _packname.replace(" ", "_") + str(_.id)
+        short_name = "dante_" + _packname.replace(" ", "_") + str(_.id)
         _r_e_s = await asst(
             functions.stickers.CreateStickerSetRequest(
                 user_id=_.sender_id,
@@ -144,11 +144,11 @@ async def pack_kangish(_):
     )
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="kang",
 )
 async def hehe(args):
-    kazu_bot = args.client
+    dante_bot = args.client
     xx = await args.eor(get_string("com_1"))
     user = kazu_bot.me
     username = user.username
@@ -161,10 +161,10 @@ async def hehe(args):
         return await xx.eor(get_string("sts_6"))
     if message.photo:
         photo = io.BytesIO()
-        photo = await kazu_bot.download_media(message.photo, photo)
+        photo = await dante_bot.download_media(message.photo, photo)
     elif message.file and "image" in message.file.mime_type.split("/"):
         photo = io.BytesIO()
-        await kazu_bot.download_file(message.media.document, photo)
+        await dante_bot.download_file(message.media.document, photo)
         if (
             DocumentAttributeFilename(file_name="sticker.webp")
             in message.media.document.attributes
@@ -179,8 +179,8 @@ async def hehe(args):
         else:
             y = cv2.VideoCapture(xy)
             heh, lol = y.read()
-            cv2.imwrite("kazu.webp", lol)
-            photo = "kazu.webp"
+            cv2.imwrite("dante.webp", lol)
+            photo = "dante.webp"
     elif message.file and "tgsticker" in message.file.mime_type:
         await kazu_bot.download_file(
             message.media.document,
@@ -207,7 +207,7 @@ async def hehe(args):
         if not emoji:
             emoji = "🗿"
         if len(splat) == 3:
-            pack = splat[2]  # User sent kazu_both
+            pack = splat[2]  # User sent dante_both
             emoji = splat[1]
         elif len(splat) == 2:
             if splat[1].isnumeric():
@@ -245,7 +245,7 @@ async def hehe(args):
                     await conv.send_message("/addsticker")
                 except YouBlockedUserError:
                     LOGS.info("Unblocking @Stickers for kang...")
-                    await kazu_bot(functions.contacts.UnblockRequest("stickers"))
+                    await dante_bot(functions.contacts.UnblockRequest("stickers"))
                     await conv.send_message("/addsticker")
                 await conv.get_response()
                 await conv.send_message(packname)
@@ -357,7 +357,7 @@ async def hehe(args):
                 await conv.get_response()
                 await conv.send_message(packname)
                 await conv.get_response()
-                await kazu_bot.send_read_acknowledge(conv.chat_id)
+                await dante_bot.send_read_acknowledge(conv.chat_id)
         await xx.edit(
             get_string("sts_12").format(emoji, packname),
             parse_mode="md",
@@ -368,16 +368,16 @@ async def hehe(args):
             pass
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="round$",
 )
-async def kazuround(event):
+async def danteround(event):
     ureply = await event.get_reply_message()
     xx = await event.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
         await xx.edit(get_string("sts_10"))
         return
-    kazu = await ureply.download_media()
+    dante = await ureply.download_media()
     file = await con.convert(
         kazu,
         convert_to="png",
@@ -393,28 +393,28 @@ async def kazuround(event):
     draw.pieslice([0, 0, h, w], 0, 360, fill=255)
     npAlpha = np.array(alpha)
     npImage = np.dstack((npImage, npAlpha))
-    Image.fromarray(npImage).save("kazu.webp")
+    Image.fromarray(npImage).save("dante.webp")
     await event.client.send_file(
         event.chat_id,
-        "kazu.webp",
+        "dante.webp",
         force_document=False,
         reply_to=event.reply_to_msg_id,
     )
     await xx.delete()
     os.remove(file)
-    os.remove("kazu.webp")
+    os.remove("dante.webp")
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="destroy$",
 )
-async def kazudestroy(event):
-    kazu = await event.get_reply_message()
-    if not (kazu and kazu.media and "animated" in mediainfo(kazu.media)):
+async def dantedestroy(event):
+    dante = await event.get_reply_message()
+    if not (dante and dante.media and "animated" in mediainfo(dante.media)):
         return await event.eor(get_string("sts_2"))
-    await event.client.download_media(kazu, "kazu.tgs")
+    await event.client.download_media(dante, "dante.tgs")
     xx = await event.eor(get_string("com_1"))
-    await bash("lottie_convert.py kazu.tgs json.json")
+    await bash("lottie_convert.py dante.tgs json.json")
     with open("json.json") as json:
         jsn = json.read()
     jsn = (
@@ -437,7 +437,7 @@ async def kazudestroy(event):
     if file:
         await event.client.send_file(
             event.chat_id,
-            file="kazu.tgs",
+            file="dante.tgs",
             force_document=False,
             reply_to=event.reply_to_msg_id,
         )
@@ -445,10 +445,10 @@ async def kazudestroy(event):
     os.remove("json.json")
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="tiny$",
 )
-async def kazutiny(event):
+async def dantetiny(event):
     reply = await event.get_reply_message()
     if not (reply and (reply.media)):
         await event.eor(get_string("sts_10"))
@@ -462,8 +462,8 @@ async def kazutiny(event):
             jsn = json.read()
         jsn = jsn.replace("512", "2000")
         open("json.json", "w").write(jsn)
-        await con.animated_sticker("json.json", "kazu.tgs")
-        file = "kazu.tgs"
+        await con.animated_sticker("json.json", "dante.tgs")
+        file = "dante.tgs"
         os.remove("json.json")
     elif ik.endswith((".gif", ".webm", ".mp4")):
         iik = cv2.VideoCapture(ik)
