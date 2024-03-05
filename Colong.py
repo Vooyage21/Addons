@@ -49,7 +49,7 @@ from . import *
 LOG_CHANNEL = udB.get_key("LOG_CHANNEL")
 
 
-@kazu_cmd(pattern="colong(?: |$)(.*)")
+@dante_cmd(pattern="colong(?: |$)(.*)")
 async def get_restriced_msg(event):
     match = event.pattern_match.group(1).strip()
     if not match:
@@ -100,7 +100,7 @@ async def get_restriced_msg(event):
         if thumb:
             os.remove(thumb)
 
-@kazu_cmd(pattern=r"curi(?: |$)(.*)")
+@dante_cmd(pattern=r"curi(?: |$)(.*)")
 async def pencuri(event):
     dia = await event.get_reply_message()
     botlog = LOG_CHANNEL
