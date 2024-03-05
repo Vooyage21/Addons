@@ -26,7 +26,7 @@ from . import *
 reco = sr.Recognizer()
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="tts ?(.*)",
 )
 async def _(event):
@@ -81,7 +81,7 @@ async def _(event):
         await event.eor(str(e))
 
 
-@kazu_cmd(pattern="stt")
+@dante_cmd(pattern="stt")
 async def speec_(e):
     reply = await e.get_reply_message()
     if not (reply and reply.media):
