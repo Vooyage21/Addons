@@ -14,14 +14,14 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from . import kazu_cmd
+from . import dante_cmd
 
 
-@kazu_cmd(pattern="limit$")
-async def demn(kazu):
+@dante_cmd(pattern="limit$")
+async def demn(dante):
     chat = "@SpamBot"
-    msg = await kazu.eor("Memeriksa Jika Anda Terbatas...")
-    async with kazu.client.conversation(chat) as conv:
+    msg = await dante.eor("Memeriksa Jika Anda Terbatas...")
+    async with dante.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
                 events.NewMessage(incoming=True, from_users=178220800)
