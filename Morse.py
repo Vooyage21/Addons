@@ -14,7 +14,7 @@
    Dekode teks yang diberikan dari Kode Morse.
 """
 
-from . import get_string, kazu_cmd
+from . import get_string, dante_cmd
 from dante.fns.tools import async_searcher
 
 
