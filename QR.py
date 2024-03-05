@@ -18,7 +18,7 @@
 """
 import os
 
-from Kazu import KazuConfig
+from dante import danteConfig
 
 try:
     import cv2
@@ -30,10 +30,10 @@ from PIL import Image
 from telethon.tl.types import MessageMediaDocument as doc
 from telethon.tl.types import MessageMediaPhoto as photu
 
-from . import check_filename, get_string, kazu_bot, kazu_cmd
+from . import check_filename, get_string, dante_bot, dante_cmd
 
 
-@kazu_cmd(pattern="qrcode( (.*)|$)")
+@dante_cmd(pattern="qrcode( (.*)|$)")
 async def cd(e):
     reply = await e.get_reply_message()
     msg = e.pattern_match.group(1).strip()
@@ -66,7 +66,7 @@ async def cd(e):
         os.remove(cimg)
 
 
-@kazu_cmd(pattern="addqr( (.*)|$)")
+@dante_cmd(pattern="addqr( (.*)|$)")
 async def qrwater(e):
     msg = e.pattern_match.group(1).strip()
     r = await e.get_reply_message()
@@ -90,7 +90,7 @@ async def qrwater(e):
     os.remove(dl)
 
 
-@kazu_cmd(pattern="qrdecode$")
+@dante_cmd(pattern="qrdecode$")
 async def decod(e):
     r = await e.get_reply_message()
     if not (r and r.media):
