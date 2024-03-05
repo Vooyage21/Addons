@@ -37,12 +37,12 @@ from telethon.tl.types import (
     DocumentAttributeVideo,
 )
 
-from Kazu.fns.tools import metadata, translate
+from dante.fns.tools import metadata, translate
 
 from . import (
     HNDLR,
     LOGS,
-    KazuConfig,
+    danteConfig,
     async_searcher,
     bash,
     check_filename,
@@ -52,9 +52,9 @@ from . import (
     get_string,
 )
 from . import humanbytes as hb
-from . import inline_mention, is_url_ok, mediainfo, kazu_cmd
+from . import inline_mention, is_url_ok, mediainfo, dante_cmd
 
-@kazu_cmd(pattern="sosmed(?: |$)(.*)")
+@dante_cmd(pattern="sosmed(?: |$)(.*)")
 async def _(event):
     if xxnx := event.pattern_match.group(1):
         d_link = xxnx
@@ -91,7 +91,7 @@ async def _(event):
         )
         await xx.delete()
         
-@kazu_cmd(
+@dante_cmd(
     pattern="pinter( (.*)|$)",
 )
 async def pinterest(e):
