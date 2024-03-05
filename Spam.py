@@ -25,7 +25,7 @@ import asyncio
 from . import *
 
 
-@kazu_cmd(pattern="tspam")
+@dante_cmd(pattern="tspam")
 async def tmeme(e):
     tspam = str(e.text[7:])
     message = tspam.replace(" ", "")
@@ -34,7 +34,7 @@ async def tmeme(e):
     await e.delete()
 
 
-@kazu_cmd(pattern="spam")
+@dante_cmd(pattern="spam")
 async def spammer(e):
     message = e.text
     if e.reply_to:
@@ -56,7 +56,7 @@ async def spammer(e):
     await e.delete()
 
 
-@kazu_cmd(pattern="bigspam", fullsudo=True)
+@dante_cmd(pattern="bigspam", fullsudo=True)
 async def bigspam(e):
     message = e.text
     if e.reply_to:
@@ -76,7 +76,7 @@ async def bigspam(e):
     await e.delete()
 
 
-@kazu_cmd(pattern="delayspam ?(.*)")
+@dante_cmd(pattern="delayspam ?(.*)")
 async def delayspammer(e):
     try:
         args = e.text.split(" ", 3)
