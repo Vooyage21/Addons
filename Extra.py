@@ -20,10 +20,10 @@
 
 import asyncio
 
-from . import get_string, kazu_cmd
+from . import get_string, dante_cmd
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="del$",
     manager=True,
 )
@@ -35,7 +35,7 @@ async def delete_it(delme):
     await delme.try_delete()
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="copy$",
 )
 async def copy(e):
@@ -46,7 +46,7 @@ async def copy(e):
     await e.eor(get_string("ex_1"), time=5)
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="edit",
 )
 async def editer(edit):
@@ -70,7 +70,7 @@ async def editer(edit):
             i += 1
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="reply$",
 )
 async def _(e):
