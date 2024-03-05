@@ -19,10 +19,10 @@
 
 import re
 
-from . import Redis, kazu_cmd, eor, get_string, udB
+from . import Redis, dante_cmd, eor, get_string, udB
 
 
-@kazu_cmd(pattern="setdb( (.*)|$)", fullsudo=False)
+@dante_cmd(pattern="setdb( (.*)|$)", fullsudo=False)
 async def _(ay):
     match = ay.pattern_match.group(1).strip()
     if not match:
@@ -42,7 +42,7 @@ async def _(ay):
         await ay.eor(get_string("com_7"))
 
 
-@kazu_cmd(pattern="deldb( (.*)|$)", fullsudo=False)
+@dante_cmd(pattern="deldb( (.*)|$)", fullsudo=False)
 async def _(ay):
     key = ay.pattern_match.group(1).strip()
     if not key:
@@ -62,7 +62,7 @@ async def _(ay):
         await ay.eor(get_string("com_7"))
 
 
-@kazu_cmd(pattern="rendb( (.*)|$)", fullsudo=False)
+@dante_cmd(pattern="rendb( (.*)|$)", fullsudo=False)
 async def _(ay):
     match = ay.pattern_match.group(1).strip()
     if not match:
