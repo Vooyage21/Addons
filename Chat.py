@@ -55,10 +55,10 @@ from telethon.tl.types import (
     UserStatusRecently,
 )
 
-from . import HNDLR, LOGS, asst, kazu_cmd, con, get_string, mediainfo, os, types, udB
+from . import HNDLR, LOGS, asst, dante_cmd, con, get_string, mediainfo, os, types, udB
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="delchat",
     groups_only=True,
 )
@@ -80,7 +80,7 @@ async def _(e):
     )
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="getlink( (.*)|$)",
     groups_only=True,
     manager=True,
@@ -98,7 +98,7 @@ async def _(e):
     if match:
         split = match.split(maxsplit=1)
         request = split[0] in ["r", "request"]
-        title = "Created by Kazu"
+        title = "Created by dante"
         if len(split) > 1:
             match = split[1]
             spli = match.split(maxsplit=1)
@@ -143,7 +143,7 @@ async def _(e):
     )
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="create (b|g|c)(?: |$)(.*)",
 )
 async def _(e):
@@ -208,7 +208,7 @@ async def _(e):
 # ---------------------------------------------------------------- #
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="setgpic( (.*)|$)", admins_only=True, manager=True, require="change_info"
 )
 async def _(kaz):
@@ -247,7 +247,7 @@ async def _(kaz):
     os.remove(replfile)
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="delgpic( (.*)|$)", admins_only=True, manager=True, require="change_info"
 )
 async def _(kaz):
@@ -261,7 +261,7 @@ async def _(kaz):
     return await kaz.eor(text, time=5)
 
 
-@kazu_cmd(pattern="unbanall$", manager=True, admins_only=True, require="ban_users")
+@dante_cmd(pattern="unbanall$", manager=True, admins_only=True, require="ban_users")
 async def _(event):
     xx = await event.eor("Mencari Daftar Peserta.")
     p = 0
@@ -281,7 +281,7 @@ async def _(event):
     await xx.eor(f"{title}: {p} unbanned", time=5)
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="rmusers( (.*)|$)",
     groups_only=True,
     admins_only=True,
