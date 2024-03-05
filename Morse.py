@@ -15,10 +15,10 @@
 """
 
 from . import get_string, kazu_cmd
-from Kazu.fns.tools import async_searcher
+from dante.fns.tools import async_searcher
 
 
-@kazu_cmd(pattern="mcode ?(.*)")
+@dante_cmd(pattern="mcode ?(.*)")
 async def mcode(event):
     msg = await event.eor(get_string("com_1"))
     text = event.pattern_match.group(1)
@@ -29,7 +29,7 @@ async def mcode(event):
     await msg.edit(f"**Encoded.**\n\n**Morse Code:** `{encoded}`")
 
 
-@kazu_cmd(pattern="mdeco ?(.*)")
+@dante_cmd(pattern="mdeco ?(.*)")
 async def mdeco(event):
     msg = await event.eor(get_string("com_1"))
     text = event.pattern_match.group(1)
