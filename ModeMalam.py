@@ -40,12 +40,12 @@ except ImportError:
 from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
 from telethon.tl.types import ChatBannedRights
 
-from Kazu.dB.night_db import *
+from dante.dB.night_db import *
 
-from . import get_string, udB, kazu_bot, kazu_cmd
+from . import get_string, udB, dante_bot, dante_cmd
 
 
-@kazu_cmd(pattern="nmtime( (.*)|$)")
+@dante_cmd(pattern="nmtime( (.*)|$)")
 async def set_time(e):
     if not e.pattern_match.group(1).strip():
         return await e.eor(get_string("nightm_1"))
@@ -60,11 +60,11 @@ async def set_time(e):
         await e.eor(get_string("nightm_1"))
 
 
-@kazu_cmd(pattern="addnm( (.*)|$)")
+@dante_cmd(pattern="addnm( (.*)|$)")
 async def add_grp(e):
     if pat := e.pattern_match.group(1).strip():
         try:
-            add_night((await kazu_bot.get_entity(pat)).id)
+            add_night((await dante_bot.get_entity(pat)).id)
             return await e.eor(f"Selesai, Menambahkan {pat} Ke Mode Malam.")
         except BaseException:
             return await e.eor(get_string("nightm_5"), time=5)
@@ -72,11 +72,11 @@ async def add_grp(e):
     await e.eor(get_string("nightm_3"))
 
 
-@kazu_cmd(pattern="remnm( (.*)|$)")
+@dante_cmd(pattern="remnm( (.*)|$)")
 async def rem_grp(e):
     if pat := e.pattern_match.group(1).strip():
         try:
-            rem_night((await kazu_bot.get_entity(pat)).id)
+            rem_night((await dante_bot.get_entity(pat)).id)
             return await e.eor(f"Selesai, Dihapus {pat} Ke Mode Malam.")
         except BaseException:
             return await e.eor(get_string("nightm_5"), time=5)
@@ -84,13 +84,13 @@ async def rem_grp(e):
     await e.eor(get_string("nightm_4"))
 
 
-@kazu_cmd(pattern="listnm$")
+@dante_cmd(pattern="listnm$")
 async def rem_grp(e):
     chats = night_grps()
     name = "Grup NightMode Adalah-:\n\n"
     for x in chats:
         try:
-            ok = await kazu_bot.get_entity(x)
+            ok = await dante_bot.get_entity(x)
             name += f"@{ok.username}" if ok.username else ok.title
         except BaseException:
             name += str(x)
@@ -101,7 +101,7 @@ async def open_grp():
     chats = night_grps()
     for chat in chats:
         try:
-            await kazu_bot(
+            await dante_bot(
                 EditChatDefaultBannedRightsRequest(
                     chat,
                     banned_rights=ChatBannedRights(
@@ -116,7 +116,7 @@ async def open_grp():
                     ),
                 )
             )
-            await kazu_bot.send_message(chat, "**Mode Malam Mati**\in\Group Dibuka 🥳.")
+            await dante_bot.send_message(chat, "**Mode Malam Mati**\in\Group Dibuka 🥳.")
         except Exception as er:
             LOGS.info(er)
 
@@ -128,7 +128,7 @@ async def close_grp():
         h1, m1, h2, m2 = eval(udB.get_key("NIGHT_TIME"))
     for chat in chats:
         try:
-            await kazu_bot(
+            await dante_bot(
                 EditChatDefaultBannedRightsRequest(
                     chat,
                     banned_rights=ChatBannedRights(
@@ -137,7 +137,7 @@ async def close_grp():
                     ),
                 )
             )
-            await kazu_bot.send_message(
+            await dante_bot.send_message(
                 chat, f"**NightMode : Grup Ditutup**\n\nGrup Akan Dibuka Pada `{h2}:{m2}`"
             )
         except Exception as er:
