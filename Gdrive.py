@@ -30,13 +30,13 @@ import time
 
 from telethon.tl.types import Message
 
-from Kazu.fns.gDrive import GDriveManager
-from Kazu.fns.helper import time_formatter
+from dante.fns.gDrive import GDriveManager
+from dante.fns.helper import time_formatter
 
-from . import KazuConfig, asst, eod, eor, get_string, kazu_cmd
+from . import danteConfig, asst, eod, eor, get_string, dante_cmd
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="gdown( (.*)|$)",
     fullsudo=True,
 )
@@ -56,7 +56,7 @@ async def gdown(event):
     )
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="gdlist$",
     fullsudo=True,
 )
@@ -88,13 +88,13 @@ async def files(event):
         await event.client.send_file(
             event.chat_id,
             "drive-files.txt",
-            thumb=KazuConfig.thumb,
+            thumb=danteConfig.thumb,
             reply_to=event,
         )
         os.remove("drive-files.txt")
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="gdul( (.*)|$)",
     fullsudo=True,
 )
@@ -171,7 +171,7 @@ async def _(event):
         await mone.edit(f"Exception occurred while uploading to gDrive {e}")
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="gdsearch( (.*)|$)",
     fullsudo=True,
 )
@@ -209,13 +209,13 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             f"{input_str}.txt",
-            thumb=KazuConfig.thumb,
+            thumb=danteConfig.thumb,
             reply_to=event,
         )
         os.remove(f"{input_str}.txt")
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="gdfolder$",
     fullsudo=True,
 )
