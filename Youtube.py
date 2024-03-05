@@ -19,12 +19,12 @@
 • `{i}ytsv <(youtube) search query>`
    Cari dan unduh video dari youtube.
 """
-from Kazu.fns.ytdl import download_yt, get_yt_link
+from dante.fns.ytdl import download_yt, get_yt_link
 
-from . import get_string, requests, kazu_cmd
+from . import get_string, requests, dante_cmd
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern="yt(a|v|sa|sv) ?(.*)",
 )
 async def download_from_youtube_(event):
