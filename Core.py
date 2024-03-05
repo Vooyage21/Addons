@@ -25,15 +25,15 @@ import os
 
 from Kazu.startup.loader import load_addons
 
-from . import LOGS, async_searcher, kazu_cmd, eod, get_string, safeinstall, un_plug
+from . import LOGS, async_searcher, dante_cmd, eod, get_string, safeinstall, un_plug
 
 
-@kazu_cmd(pattern="install", fullsudo=True)
+@dante_cmd(pattern="install", fullsudo=True)
 async def install(event):
     await safeinstall(event)
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern=r"unload( (.*)|$)",
 )
 async def unload(event):
@@ -56,7 +56,7 @@ async def unload(event):
         await event.eor(f"**Nᴏ Pʟᴜɢɪɴ Nᴀᴍᴇᴅ** `{shortname}`", time=3)
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern=r"uninstall( (.*)|$)",
 )
 async def uninstall(event):
@@ -79,7 +79,7 @@ async def uninstall(event):
         return await event.eor(f"**Nᴏ Pʟᴜɢɪɴ Nᴀᴍᴇᴅ** `{shortname}`", time=3)
 
 
-@kazu_cmd(
+@dante_cmd(
     pattern=r"load( (.*)|$)",
     fullsudo=True,
 )
@@ -104,7 +104,7 @@ async def load(event):
         )
 
 
-@kazu_cmd(pattern="getaddons( (.*)|$)", fullsudo=True)
+@dante_cmd(pattern="getaddons( (.*)|$)", fullsudo=True)
 async def get_the_addons_lol(event):
     thelink = event.pattern_match.group(1).strip()
     xx = await event.eor(get_string("com_1"))
