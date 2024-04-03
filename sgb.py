@@ -12,12 +12,12 @@ from asyncio import sleep, TimeoutError
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from . import get_string, LOGS, ultroid_cmd
+from . import get_string, LOGS, dante_cmd
 
 
 CHAT = "SangMata_beta_bot"
 
-@ultroid_cmd(
+@dante_cmd(
     pattern="sgb( (.*)|$)",
 )
 async def sangmata_beta(e):
