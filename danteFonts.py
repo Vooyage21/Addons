@@ -564,7 +564,7 @@ async def _(dante):
     elif font == "bolditalic":
         yins = gen_font(text, _bolditalic)
     await eor(dante)
-    await dante.reply("**𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚𝙙 𝘽𝙮 :** ✧ 𝙺𝙰𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧")
+    await dante.reply("**By :**Dante Fonts")
     if not dante:
         await dante.reply("Ketik Yang Bener Bego!!!")
 
@@ -587,7 +587,7 @@ async def fonts(yins):
                                 "**• bubbles » dante**\n"
                                 "**• bold » dante**\n"
                                 "**• bolditalic » dante**\n\n"
-                                "**   ✧ dante-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**")
+                                "**    dante-UBOT **")
 
 
 CMD_HELP.update(
