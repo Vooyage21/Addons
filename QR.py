@@ -1,9 +1,9 @@
-# kazu - UserBot
+# dante - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/kazu/ >
+# This file is a part of < https://github.com/senpai80/dante/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/dante/blob/main/LICENSE/>.
 """
 ◈ Perintah Tersedia
 
@@ -41,11 +41,11 @@ async def cd(e):
         msg = reply.text
     elif not msg:
         return await e.eor("`Berikan Beberapa Teks atau Balas", time=5)
-    default, cimg = KazuConfig.thumb, None
+    default, cimg = danteConfig.thumb, None
     if reply and (reply.sticker or reply.photo):
         cimg = await reply.download_media()
-    elif kazu_bot.me.photo and not kazu_bot.me.photo.has_video:
-        cimg = await e.client.get_profile_photos(kazu_bot.uid, limit=1)[0]
+    elif dante_bot.me.photo and not dante_bot.me.photo.has_video:
+        cimg = await e.client.get_profile_photos(dante_bot.uid, limit=1)[0]
 
     kk = await e.eor(get_string("com_1"))
     img = cimg or default
