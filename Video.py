@@ -1,9 +1,9 @@
-# kazu - UserBot
+# dante - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/kazu/ >
+# This file is a part of < https://github.com/senpai80/dante/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/dante/blob/main/LICENSE/>.
 """
 ◈ Perintah Tersedia
 
@@ -60,7 +60,7 @@ async def gen_sample(e):
         await e.client.send_file(
             e.chat_id,
             mmmm,
-            thumb=KazuConfig.thumb,
+            thumb=danteConfig.thumb,
             caption=caption,
             attributes=attributes,
             force_document=False,
@@ -71,7 +71,7 @@ async def gen_sample(e):
         await e.eor(get_string("audiotools_8"), time=5)
 
 
-@kazu_cmd(pattern="vshots( (.*)|$)")
+@dante_cmd(pattern="vshots( (.*)|$)")
 async def gen_shots(e):
     ss = e.pattern_match.group(1).strip()
     shot = int(ss) if ss and ss.isdigit() else 5
@@ -128,7 +128,7 @@ async def gen_sample(e):
         await e.client.send_file(
             e.chat_id,
             mmmm,
-            thumb=KazuConfig.thumb,
+            thumb=danteConfig.thumb,
             caption=caption,
             attributes=attributes,
             force_document=False,
