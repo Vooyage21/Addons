@@ -1,9 +1,9 @@
-# kazu - UserBot
+# dante - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/kazu/ >
+# This file is a part of < https://github.com/senpai80/dante/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/dante/blob/main/LICENSE/>.
 """
 ◈ Perintah Tersedia
 
@@ -150,7 +150,7 @@ async def pack_kangish(_):
 async def hehe(args):
     dante_bot = args.client
     xx = await args.eor(get_string("com_1"))
-    user = kazu_bot.me
+    user = dante_bot.me
     username = user.username
     username = f"@{username}" if username else user.first_name
     message = await args.get_reply_message()
@@ -182,7 +182,7 @@ async def hehe(args):
             cv2.imwrite("dante.webp", lol)
             photo = "dante.webp"
     elif message.file and "tgsticker" in message.file.mime_type:
-        await kazu_bot.download_file(
+        await dante_bot.download_file(
             message.media.document,
             "AnimatedSticker.tgs",
         )
@@ -240,7 +240,7 @@ async def hehe(args):
             "  A <strong>Telegram</strong> user has created the <strong>Sticker&nbsp;Set</strong>."
             not in htmlstr
         ):
-            async with kazu_bot.conversation("@Stickers") as conv:
+            async with dante_bot.conversation("@Stickers") as conv:
                 try:
                     await conv.send_message("/addsticker")
                 except YouBlockedUserError:
@@ -322,10 +322,10 @@ async def hehe(args):
                 await conv.get_response()
                 await conv.send_message("/done")
                 await conv.get_response()
-                await kazu_bot.send_read_acknowledge(conv.chat_id)
+                await dante_bot.send_read_acknowledge(conv.chat_id)
         else:
             await xx.edit("`Brewing a new Pack...`")
-            async with kazu_bot.conversation("Stickers") as conv:
+            async with dante_bot.conversation("Stickers") as conv:
                 await conv.send_message(cmd)
                 await conv.get_response()
                 await conv.send_message(packnick)
@@ -379,7 +379,7 @@ async def danteround(event):
         return
     dante = await ureply.download_media()
     file = await con.convert(
-        kazu,
+        dante,
         convert_to="png",
         allowed_formats=["jpg", "jpeg", "png"],
         outname="round",
@@ -433,7 +433,7 @@ async def dantedestroy(event):
         .replace("[9]", "[110]")
     )
     open("json.json", "w").write(jsn)
-    file = await con.animated_sticker("json.json", "kazu.tgs")
+    file = await con.animated_sticker("json.json", "dante.tgs")
     if file:
         await event.client.send_file(
             event.chat_id,
