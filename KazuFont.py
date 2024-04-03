@@ -527,7 +527,6 @@ def gen_font(text, new_font):
             text = text.replace(q, new)
     return text
 
-
 @dante_cmd(pattern="font(.*)(|$)")
 async def _(dante):
     input = dante.pattern_match.group(1).strip()
