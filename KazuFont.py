@@ -528,7 +528,7 @@ def gen_font(text, new_font):
     return text
 
 
-@kazu_cmd(pattern="font(.*)(|$)")
+@dante_cmd(pattern="font(.*)(|$)")
 async def _(ayiin):
     input = ayiin.pattern_match.group(1).strip()
     reply = await ayiin.get_reply_message()
