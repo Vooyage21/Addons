@@ -442,29 +442,29 @@ def blackbubbles(text):
 
 
 @dante_cmd(pattern=r"font (monospace|smallcap|outline|bold|bolditalic|script|bubbles|blackbubbles) (.*)")
-async def font_yins(ayiin):
-    if ayiin.pattern_match.group(1) == "monospace":
+async def font_yins(dante):
+    if dante.pattern_match.group(1) == "monospace":
         xd = monospace
-    if ayiin.pattern_match.group(1) == "smallcap":
+    if dante.pattern_match.group(1) == "smallcap":
         xd = smallcap
-    if ayiin.pattern_match.group(1) == "outline":
+    if dante.pattern_match.group(1) == "outline":
         xd = outline
-    if ayiin.pattern_match.group(1) == "bold":
+    if dante.pattern_match.group(1) == "bold":
         xd = bold
-    if ayiin.pattern_match.group(1) == "bolditalic":
+    if dante.pattern_match.group(1) == "bolditalic":
         xd = bolditalic
-    if ayiin.pattern_match.group(1) == "script":
+    if dante.pattern_match.group(1) == "script":
         xd = script
-    if ayiin.pattern_match.group(1) == "bubbles":
+    if dante.pattern_match.group(1) == "bubbles":
         xd = bubbles
-    if ayiin.pattern_match.group(1) == "blackbubbles":
+    if dante.pattern_match.group(1) == "blackbubbles":
         xd = blackbubbles
-    kontol = xd(ayiin.pattern_match.group(2))
+    kontol = xd(dante.pattern_match.group(2))
     if not kontol:
-        return await eod(ayiin, "`Ngetik Yang Bener Bego...`")
+        return await eod(dante, "`Ngetik Yang Bener Bego...`")
 
-    await ayiin.edit(f"{kontol}")
-    await ayiin.reply("**𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚𝙙 𝘽𝙮 :** ✧ 𝙺𝙰𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧")
+    await dante.edit(f"{kontol}")
+    await dante.reply("**𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚𝙙 𝘽𝙮 :** ✧ 𝙺𝙰𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧")
 
 
 # ========================×========================
@@ -529,12 +529,12 @@ def gen_font(text, new_font):
 
 
 @dante_cmd(pattern="font(.*)(|$)")
-async def _(ayiin):
-    input = ayiin.pattern_match.group(1).strip()
-    reply = await ayiin.get_reply_message()
-    reply_to_id = ayiin.message
-    if ayiin.reply_to_msg_id:
-        reply_to_id = await ayiin.get_reply_message()
+async def _(dante):
+    input = dante.pattern_match.group(1).strip()
+    reply = await dante.get_reply_message()
+    reply_to_id = dante.message
+    if dante.reply_to_msg_id:
+        reply_to_id = await dante.get_reply_message()
 
     if not reply:
         try:
@@ -542,15 +542,15 @@ async def _(ayiin):
             font = _[0][:-1]
             text = _[0]
         except IndexError:
-            return await eod(ayiin, reply_to_id)
+            return await eod(dante, reply_to_id)
     elif not input:
-        return await eod(ayiin, "`Kasih Font Dong Bego :/`")
+        return await eod(dante, "`Kasih Font Dong Bego :/`")
 
     else:
         font = input
         text = reply.message
     if not font:
-        return await eor(ayiin, f"`{font} Tidak Ada Dalam Daftar Font Kentod...`", time=5)
+        return await eor(dante, f"`{font} Tidak Ada Dalam Daftar Font Kentod...`", time=5)
     if font == "smallcap":
         yins = gen_font(text, _smallcap)
     elif font == "monospace":
@@ -567,10 +567,10 @@ async def _(ayiin):
         yins = gen_font(text, _bold)
     elif font == "bolditalic":
         yins = gen_font(text, _bolditalic)
-    await eor(ayiin)
-    await ayiin.reply("**𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚𝙙 𝘽𝙮 :** ✧ 𝙺𝙰𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧")
-    if not ayiin:
-        await ayiin.reply("Ketik Yang Bener Bego!!!")
+    await eor(dante)
+    await dante.reply("**𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚𝙙 𝘽𝙮 :** ✧ 𝙺𝙰𝚉𝚄-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧")
+    if not dante:
+        await dante.reply("Ketik Yang Bener Bego!!!")
 
 
 # ========================×========================
@@ -580,7 +580,7 @@ async def _(ayiin):
 
 @dante_cmd(pattern="lf(.*)(|$)")
 async def fonts(yins):
-    ayiin = await eor(ayiin,
+    dante = await eor(dante,
                                 "**»» ᴅᴀғᴛᴀʀ ғᴏɴᴛs ««**\n"
                                 "**         ☟︎︎︎☟︎︎︎☟︎︎︎☟︎︎︎☟︎︎︎☟︎︎**\n\n\n"
                                 "**• smallcap » dante**\n"
