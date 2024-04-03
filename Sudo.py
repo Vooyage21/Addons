@@ -1,9 +1,9 @@
-# kazu - UserBot
+# dante - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/kazu/ >
+# This file is a part of < https://github.com/senpai80/dante/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/kazu/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/dante/blob/main/LICENSE/>.
 """
 ◈ Perintah Tersedia
 
@@ -119,6 +119,6 @@ async def _(dante):
     m = udB.get_key("SUDO") or True
     if not m:
         m = "[False](https://graph.org/dante-11-29)"
-    return await kazu.eor(
+    return await dante.eor(
         f"**SUDO MODE : {m}\n\nList of SUDO Users :**\n{msg}", link_preview=False
     )
