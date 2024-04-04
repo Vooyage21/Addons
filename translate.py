@@ -1,9 +1,9 @@
-# Ayra - UserBot
+# dante - UserBot
 # Copyright (C) 2021-2022 senpai80
 #
-# This file is a part of < https://github.com/senpai80/Ayra/ >
+# This file is a part of < https://github.com/senpai80/dante/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/senpai80/Ayra/blob/main/LICENSE/>.
+# <https://www.github.com/senpai80/dante/blob/main/LICENSE/>.
 """
 ✘ **Bantuan Untuk Translate**
 
@@ -19,13 +19,13 @@ from contextlib import suppress
 
 from gpytranslate import Translator
 
-from . import ayra_cmd
+from . import dante_cmd
 from ._trans import *
 
 BAHASA = ["en", "id", "fr", "es", "de", "it", "ja", "ko", "zh"]
 
 
-@ayra_cmd(pattern=r"^[Tt][r](?: |$)(.*)", manager=False)
+@dante_cmd(pattern=r"^[Tt][r](?: |$)(.*)", manager=False)
 async def _(jink):
     match = jink.pattern_match.group(1)
     itu = match.split(" ")
