@@ -115,4 +115,4 @@ async def pencuri(event):
              pap,
              caption="Pap nya...")
     except Exception as e:
-        print(
+        print()
