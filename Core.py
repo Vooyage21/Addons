@@ -23,7 +23,7 @@
 
 import os
 
-from Kazu.startup.loader import load_addons
+from dante.startup.loader import load_addons
 
 from . import LOGS, async_searcher, dante_cmd, eod, get_string, safeinstall, un_plug
 
