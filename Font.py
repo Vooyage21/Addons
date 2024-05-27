@@ -1,8 +1,4 @@
-#
-# Credits @chewmo
-#
-# Ported for Ultroid < https://github.com/TeamUltroid/Ultroid >
-#
+
 
 """
 ✘ Commands Available -
